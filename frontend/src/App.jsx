@@ -1,5 +1,6 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { X } from "lucide-react";
+import axios from "axios";
 
 export default function Page() {
   const [input, setInput] = useState('{"data":["M","1","334","4","B"]}');
@@ -13,14 +14,13 @@ export default function Page() {
 
     try {
       const parsedInput = JSON.parse(input);
-      const res = await fetch("https://bajaj-bf4j.onrender.com/bfhl", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(parsedInput),
-      });
-      const data = await res.json();
+      const { data } = await axios.post(
+        "https://bajaj-bf4j.onrender.com/bfhl",
+        parsedInput,
+        {
+          headers: { "Content-Type": "application/json" },
+        }
+      );
       setResponse(data);
     } catch (err) {
       setError("Invalid JSON input or server error");

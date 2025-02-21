@@ -1,4 +1,3 @@
-// server.js
 import express from "express";
 import cors from "cors";
 
@@ -8,10 +7,9 @@ const port = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-// Your user details (replace with your actual details)
-const USER_ID = "john_doe_17091999";
-const EMAIL = "john@xyz.com";
-const ROLL_NUMBER = "ABCD123";
+const USER_ID = "serena_kumari_19092004";
+const EMAIL = "2221078.cse.coe@cgc.edu.in";
+const ROLL_NUMBER = "2221078";
 
 app.post("/bfhl", (req, res) => {
   try {
